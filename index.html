@@ -11,13 +11,21 @@
         background: #d8d5c4;
         color: #111;
       }
+      .floating-center {
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(min(900px, 100vw));
+        @media (min-width: 1896px) {
+          width: calc(min(1896px, 100vw));
+        }
+        
+      }
       body {
-        margin: 0;
         background: #d8d5c4;
         color: #111;
       }
       .container {
-        width: calc(min(900px, 100% - 48px));
+        width: calc(min(900px, 100vw - 48px));
         margin: 0;
         padding: 0 24px;
         line-height: 1.6;
@@ -51,7 +59,7 @@
         text-align: center;
         padding-bottom: 12px;
         margin: 0;
-        width: calc(min(900px, calc(100% - 48px)));
+        width: calc(min(900px, calc(100vw - 48px)));
         @media (min-width: 1848px) {
           width: calc(min(1848px, 100%));
         }
@@ -125,7 +133,7 @@
      </style>
   </head>
   <body>
-
+<div class="floating-center">
 <main class="full-width"><h1 class="title">The Science of Benchmarking</h1>
   <h2>
   What's Measured, What's Missing, What's Next</h2>
@@ -226,7 +234,7 @@
      
       </main>
 
-
+    </div>
    
   </body>
 </html>
