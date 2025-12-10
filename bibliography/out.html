@@ -1,227 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NeurIPS 2025: The Science of Benchmarking Tutorial</title>
-    <meta name="description" content="A NeurIPS 2025 tutorial on benchmarking: What's Measured, What's Missing, What's Next. Exploring epistemology, limitations, and emerging paradigms in AI evaluation." />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://benchmarking.science/" />
-    <meta property="og:title" content="NeurIPS 2025: The Science of Benchmarking Tutorial" />
-    <meta property="og:description" content="A NeurIPS 2025 tutorial on benchmarking: What's Measured, What's Missing, What's Next. Exploring epistemology, limitations, and emerging paradigms in AI evaluation." />
-    <meta property="og:image" content="https://benchmarking.science/card.jpg" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://benchmarking.science/" />
-    <meta property="twitter:title" content="NeurIPS 2025: The Science of Benchmarking Tutorial" />
-    <meta property="twitter:description" content="NeurIPS 2025 tutorial on benchmarking: What's Measured, What's Missing, What's Next. Exploring epistemology, limitations, and emerging paradigms in AI evaluation." />
-    <meta property="twitter:image" content="https://benchmarking.science/card.jpg" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://saxon.me/theme/css/fonts.css" />
-    <style>
-      :root {
-        color-scheme: light;
-        font-family: "Berkeley Mono", monospace;
-        background: #e9e7d9;
-        color: #111;
-      }
-      html {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
-      .floating-center {
-        margin-left: auto;
-        margin-right: auto;
-        width: calc(min(900px, 100vw));
-        @media (min-width: 1896px) {
-          width: calc(min(1896px, 100vw));
-        }
-        
-      }
-      body {
-        background: #e9e7d9;
-        color: #111;
-        font-size: 20px;
-    font-weight: 500;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        width: calc(min(900px, 100vw - 48px));
-        margin: 0;
-        padding: 0 24px;
-        line-height: 1.6;
-        float: left;
-      }
-      a {
-        color: #0e3ea5;
-      }
-      h1 {
-        font-size: 32px;
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid #111;
-    font-weight:900;
-
-      }
-      h2 {
-        font-size: 24px;
-        margin-top: 20px;
-        margin-bottom: 12px;
-        padding-bottom: 6px;
-    font-weight:700;
-      }
-      h3 {
-        font-size: 18px;
-        margin-top: 20px;
-        margin-bottom: 12px;
-        padding-bottom: 6px;
-    font-weight: 700;
-      }
-      .full-width {
-        margin: 0 auto;
-        padding: 0 24px;
-        text-align: center;
-        padding-bottom: 12px;
-        margin: 0;
-        width: calc(min(900px, calc(100vw - 48px)));
-        @media (min-width: 1848px) {
-          width: calc(min(1848px, 100%));
-        }
-       }
-      .full-width h1.title {
-        text-align: center;
-
-        font-size: 48px;
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-      }
-      hr {
-        margin: 20px 0;
-        border: 0;
-        border-top: 1px solid #111;
-      }
-      p {
-        margin: 12px 0;
-      font-stretch: semi-condensed;
-      color: #666;
-      }
-      figure {
-        margin: 24px auto 48px;
-        text-align: center;
-        width: 100%;
-      }
-      figcaption {
-        font-size: 14px;
-        color: #555;
-        margin-top: 8px;
-      }
-      .presenters-container {
-        display: flex;
-        gap: 24px;
-        justify-content: center;
-        margin: 24px 0;
-        flex-wrap: wrap;
-      }
-      .profile-box {
-        border: 1px solid #111;
-        padding: 16px;
-        text-align: center;
-        min-width: 200px;
-        max-width: 250px;
-        flex: 0 0 250px;
-        word-break: break-word;
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        background: #e9e7d9;
-      }
-      .profile-box:hover {
-        background: #e0e9f6;
-        /* text-decoration: underline; */
-        border-color: #0e3ea5;
-        color: #0e3ea5;
-      }
-      .profile-box img {
-        width: 100%;
-        aspect-ratio: 1;
-        display: block;
-        margin-bottom: 12px;
-        background: inherit;
-        filter: grayscale(1);
-        mix-blend-mode: multiply;
-        object-fit: cover;
-      }
-      .container .presenters-container .profile-box {
-        min-width: 300px;
-        max-width: 300px;
-        flex: 0 0 300px;
-        word-break: break-word;
-      }
-      .profile-box .name {
-        font-weight: bold;
-        margin-bottom: 8px;
-      }
-      .profile-box .affiliation {
-        font-size: 14px;
-    font-weight: 200;
-      }
-      .footer-image {
-        display: block;
-        width: 100vw;
-        height: 650px;
-        padding-top: 60px;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        margin-bottom: 0;
-        position: relative;
-        left: 50%;
-        clear: both;
-        background-image: 
-          url('https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg');
-        background-size: cover;
-        background-position: center;
-        filter: grayscale(1);
-        mix-blend-mode: multiply;
-      }
-
-      .footer-image::after {
-        background: linear-gradient( to bottom, #fff 75px, rgba(233, 231, 217, 0.9) 150px, rgba(233, 231, 217, 0) 300px, transparent 100%);
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      .reference { margin-bottom: 1em; text-indent: -2em; padding-left: 2em; text-align: justify; font-family: "Roboto", sans-serif; font-size: 18px;}
-      .reference .title { font-weight: bold; }
-      .reference .venue { font-style: italic; }
-
-     </style>
-  </head>
-  <body>
-<div class="floating-center">
-<main class="full-width"><h1 class="title">The Science of Benchmarking</h1>
-  <h2>
-  What's Measured, What's Missing, What's Next</h2>
-  <h2>Bibliography</h2>
-  
-<h3>1. What's Measured</h3>
-
-<p>TBD</p>
-
-<h3>2. What's Missing</h3>
-
-<div class="reference">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bibliography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Times New Roman", serif; margin: 40px; line-height: 1.6; }
+    .reference { font-family: "Roboto", sans-serif; margin-bottom: 1em; text-indent: -2em; padding-left: 2em; }
+    .title { font-weight: bold; }
+    .venue { font-style: italic; }
+  </style>
+</head>
+<body>
+  <h1>Bibliography</h1>
+  <div class="reference">
     Kathrin Blagec, Jakob Kraiger, Wolfgang Frühwirt, and Matthias Samwald. 2023. 
 <span class="title">Benchmark datasets driving artificial intelligence development fail to capture the needs of medical professionals</span>. 
 <span class="venue">Journal of Biomedical Informatics, 137:104274.</span>
@@ -233,8 +27,7 @@
   </div>
   <div class="reference">
     Raunak Chowdhuri, Neil Deshmukh, and David Koplow. 2023. 
-<span class="title">No, GPT4 can’t ace MIT: A Rebuttal of a Popular MIT Paper.</span>
-<span class="venue">Medium</span>.
+<span class="title">No, GPT4 can’t ace MIT: A Rebuttal of a Popular MIT Paper.</span>. 
   </div>
   <div class="reference">
     Naihao Deng, Xinliang Zhang, Siyang Liu, Winston Wu, Lu Wang, and Rada Mihalcea. 2023. 
@@ -243,8 +36,7 @@
   </div>
   <div class="reference">
     Yanai Elazar, Akshita Bhagia, Ian Magnusson, Abhilasha Ravichander, Dustin Schwenk, Alane Suhr, Pete Walsh, Dirk Groeneveld, Luca Soldaini, Sameer Singh, Hannaneh Hajishirzi, Noah Smith, and Jesse Dodge. 2024. 
-<span class="title">What’s In My Big Data?</span>
-<span class="venue">International Conference on Representation Learning, 2024:7735–7790</span>. 
+<span class="title">What’s In My Big Data? International Conference on Representation Learning, 2024:7735–7790.</span>. 
   </div>
   <div class="reference">
     Maria Eriksson, Erasmo Purificato, Arman Noroozian, Joao Vinagre, Guillaume Chaslot, Emilia Gomez, and David Fernandez-Llorca. 2025. 
@@ -388,18 +180,5 @@ Hyeong Kyu Choi, Maxim Khanov, Hongxin Wei, and Yixuan Li. 2025. How Contaminate
 <span class="title">Exploring the MIT Mathematics and EECS Curriculum Using Large Language Models</span>. 
 <span class="venue">arXiv:2306.08997 [cs].</span>
   </div>
-
-
-
-<h3>3. What's Next</h3>
-
-<p>TBD</p>
-
-  
-</main>
-
-
-    <div class="footer-image"></div>
-   
-  </body>
+</body>
 </html>
