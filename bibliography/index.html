@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeurIPS 2025: The Science of Benchmarking Tutorial</title>
+    <meta name="description" content="A NeurIPS 2025 tutorial on benchmarking: What's Measured, What's Missing, What's Next. Exploring epistemology, limitations, and emerging paradigms in AI evaluation." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://benchmarking.science/" />
+    <meta property="og:title" content="NeurIPS 2025: The Science of Benchmarking Tutorial" />
+    <meta property="og:description" content="A NeurIPS 2025 tutorial on benchmarking: What's Measured, What's Missing, What's Next. Exploring epistemology, limitations, and emerging paradigms in AI evaluation." />
+    <meta property="og:image" content="https://benchmarking.science/card.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://benchmarking.science/" />
+    <meta property="twitter:title" content="NeurIPS 2025: The Science of Benchmarking Tutorial" />
+    <meta property="twitter:description" content="NeurIPS 2025 tutorial on benchmarking: What's Measured, What's Missing, What's Next. Exploring epistemology, limitations, and emerging paradigms in AI evaluation." />
+    <meta property="twitter:image" content="https://benchmarking.science/card.jpg" />
+    
+    <link rel="stylesheet" href="https://saxon.me/theme/css/fonts.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Berkeley Mono", monospace;
+        background: #e9e7d9;
+        color: #111;
+      }
+      html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      .floating-center {
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(min(900px, 100vw));
+        @media (min-width: 1896px) {
+          width: calc(min(1896px, 100vw));
+        }
+        
+      }
+      body {
+        background: #e9e7d9;
+        color: #111;
+        font-size: 20px;
+    font-weight: 500;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: calc(min(900px, 100vw - 48px));
+        margin: 0;
+        padding: 0 24px;
+        line-height: 1.6;
+        float: left;
+      }
+      a {
+        color: #0e3ea5;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #111;
+    font-weight:900;
+
+      }
+      h2 {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+    font-weight:700;
+      }
+      h3 {
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+    font-weight: 700;
+      }
+      .full-width {
+        margin: 0 auto;
+        padding: 0 24px;
+        text-align: center;
+        padding-bottom: 12px;
+        margin: 0;
+        width: calc(min(900px, calc(100vw - 48px)));
+        @media (min-width: 1848px) {
+          width: calc(min(1848px, 100%));
+        }
+       }
+      .full-width h1.title {
+        text-align: center;
+
+        font-size: 48px;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+      }
+      hr {
+        margin: 20px 0;
+        border: 0;
+        border-top: 1px solid #111;
+      }
+      p {
+        margin: 12px 0;
+      font-stretch: semi-condensed;
+      color: #666;
+      }
+      figure {
+        margin: 24px auto 48px;
+        text-align: center;
+        width: 100%;
+      }
+      figcaption {
+        font-size: 14px;
+        color: #555;
+        margin-top: 8px;
+      }
+      .presenters-container {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        margin: 24px 0;
+        flex-wrap: wrap;
+      }
+      .profile-box {
+        border: 1px solid #111;
+        padding: 16px;
+        text-align: center;
+        min-width: 200px;
+        max-width: 250px;
+        flex: 0 0 250px;
+        word-break: break-word;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: #e9e7d9;
+      }
+      .profile-box:hover {
+        background: #e0e9f6;
+        /* text-decoration: underline; */
+        border-color: #0e3ea5;
+        color: #0e3ea5;
+      }
+      .profile-box img {
+        width: 100%;
+        aspect-ratio: 1;
+        display: block;
+        margin-bottom: 12px;
+        background: inherit;
+        filter: grayscale(1);
+        mix-blend-mode: multiply;
+        object-fit: cover;
+      }
+      .container .presenters-container .profile-box {
+        min-width: 300px;
+        max-width: 300px;
+        flex: 0 0 300px;
+        word-break: break-word;
+      }
+      .profile-box .name {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .profile-box .affiliation {
+        font-size: 14px;
+    font-weight: 200;
+      }
+      .footer-image {
+        display: block;
+        width: 100vw;
+        height: 650px;
+        padding-top: 60px;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        margin-bottom: 0;
+        position: relative;
+        left: 50%;
+        clear: both;
+        background-image: 
+          url('https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg');
+        background-size: cover;
+        background-position: center;
+        filter: grayscale(1);
+        mix-blend-mode: multiply;
+      }
+
+      .footer-image::after {
+        background: linear-gradient( to bottom, #fff 75px, rgba(233, 231, 217, 0.9) 150px, rgba(233, 231, 217, 0) 300px, transparent 100%);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    
+     </style>
+  </head>
+  <body>
+<div class="floating-center">
+<main class="full-width"><h1 class="title">The Science of Benchmarking</h1>
+  <h2>
+  What's Measured, What's Missing, What's Next</h2>
+  <h2>Bibliography</h2>
+  
+<h3>1. What's Measured</h3>
+
+<p>TBD</p>
+
+<h3>2. What's Missing</h3>
+
+<p>TBD</p>
+
+<h3>3. What's Next</h3>
+
+<p>TBD</p>
+
+  
+</main>
+
+
+    <div class="footer-image"></div>
+   
+  </body>
+</html>
